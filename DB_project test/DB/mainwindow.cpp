@@ -7,6 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    //Подключаем базу данных
+   QSqlDatabase db;
+   db = QSqlDatabase::addDatabase("QSQLITE");
+   db.setDatabaseName("C:\\apteka.sqlite");
+   db.open();
     ui->setupUi(this);
 }
 
@@ -17,22 +22,28 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    //Подключаем базу данных
-   QSqlDatabase db;
-   db = QSqlDatabase::addDatabase("QSQLITE");
-   db.setDatabaseName("C:\\apteka.sqlite");
-   db.open();
+    ui->textEdit->clear();
+    QSqlQuery queryINShow;
+    queryINShow.exec("Select * FROM Category;");
+    while (queryINShow.next())
+    {
+    QString _id = queryINShow.value(0).toString();
+    QString name = queryINShow.value(1).toString();
+    ui->textEdit->insertPlainText(_id+" "+name+"\n");
+    }
+}
 
-   //Осуществляем запрос
-   QSqlQuery query;
-   query.exec("SELECT Goods.name_good, Category.name_category FROM Category INNER JOIN Goods ON Category.id_category = Goods.category_good;");
+void MainWindow::on_pushButton_2_clicked()
+{
+    QSqlQuery queryINS;
+    queryINS.exec("INSERT INTO Category (name_category) VALUES ('Категория');");
+    ui->pushButton->click();
 
-   //Выводим значения из запроса
-   while (query.next())
-   {
-   QString _id = query.value(0).toString();
-   QString name = query.value(1).toString();
-   ui->textEdit->insertPlainText(_id+" "+name+"\n");
-   }
+}
 
+void MainWindow::on_pushButton_3_clicked()
+{
+    QSqlQuery queryINS;
+    queryINS.exec("Delete FROM Category WHERE [name_category] = 'Категория';");
+    ui->pushButton->click();
 }
