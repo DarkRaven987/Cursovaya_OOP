@@ -32,7 +32,12 @@ HEADERS += \
         mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+        about.ui \
+        mainwindow.ui \
+        medsdatamanip.ui \
+        medsoutput.ui \
+        prodsdatamanip.ui \
+        prodsoutput.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

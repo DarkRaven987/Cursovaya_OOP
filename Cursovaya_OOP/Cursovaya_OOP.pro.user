@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
+<!-- Written by QtCreator 4.9.0, 2019-05-28T21:17:00. -->
+=======
 <!-- Written by QtCreator 4.8.2, 2019-05-28T21:14:40. -->
+>>>>>>> 15ef77779abe4ab5a4e28d36a2490bd74dffc4f4
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -297,8 +301,12 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Cursovaya_OOP</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+<<<<<<< HEAD
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Cursovaya_OOP/Cursovaya_OOP/Cursovaya_OOP.pro</value>
+=======
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/ZNTU/Course/Cursovaya_OOP/Cursovaya_OOP/Cursovaya_OOP.pro</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">Cursovaya_OOP.pro</value>
+>>>>>>> 15ef77779abe4ab5a4e28d36a2490bd74dffc4f4
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
@@ -308,7 +316,11 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
+<<<<<<< HEAD
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Cursovaya_OOP/build-Cursovaya_OOP-Desktop_Qt_5_12_3_MinGW_64_bit-Debug</value>
+=======
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/ZNTU/Course/Cursovaya_OOP/build-Cursovaya_OOP-Desktop_Qt_5_5_1_MinGW_32bit-Debug</value>
+>>>>>>> 15ef77779abe4ab5a4e28d36a2490bd74dffc4f4
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
