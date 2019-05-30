@@ -3,6 +3,8 @@
 #include "QtSql/QSqlDatabase"
 #include "QSqlQuery"
 #include <QtSql>
+#include <QtGui>
+#include <QtCore>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,14 +14,20 @@ MainWindow::MainWindow(QWidget *parent) :
    db.setDatabaseName("C:\\apteka.sqlite");
    db.open();
 
-   QSqlTableModel *model = new QSqlTableModel(this,db);
-   model->setTable("Category");
-   model->select();
-   model->setHeaderData(0, Qt::Horizontal, tr("ID"));
-   model->setHeaderData(1, Qt::Horizontal, tr("Название"));
+   QSqlQueryModel *model;
+   model = new QSqlQueryModel();
+   model->setQuery("SELECT Goods.name_good, Category.name_category, Goods.name_company, Goods.price FROM Category INNER JOIN Goods ON Category.id_category = Goods.category_good;");
 
-   ui->tableView->setModel(model);
-   ui->tableView->show();
+//   QSqlTableModel *model = new QSqlTableModel(this,db);
+//   model->setTable("Category");
+//   model->select();
+//   model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+//   model->setHeaderData(1, Qt::Horizontal, tr("Название"));
+
+  ui->tableView->setModel(model);
+  ui->tableView->resizeColumnsToContents();
+ // ui->tableView->setColumnHidden(0, true);
+  ui->tableView->show();
 }
 
 MainWindow::~MainWindow()
