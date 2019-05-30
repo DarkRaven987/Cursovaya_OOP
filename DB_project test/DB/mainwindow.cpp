@@ -7,12 +7,19 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    //Подключаем базу данных
-   QSqlDatabase db;
-   db = QSqlDatabase::addDatabase("QSQLITE");
+    ui->setupUi(this);
+   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
    db.setDatabaseName("C:\\apteka.sqlite");
    db.open();
-    ui->setupUi(this);
+
+   QSqlTableModel *model = new QSqlTableModel(this,db);
+   model->setTable("Category");
+   model->select();
+   model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+   model->setHeaderData(1, Qt::Horizontal, tr("Название"));
+
+   ui->tableView->setModel(model);
+   ui->tableView->show();
 }
 
 MainWindow::~MainWindow()
@@ -22,15 +29,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->textEdit->clear();
-    QSqlQuery queryINShow;
-    queryINShow.exec("Select * FROM Category;");
-    while (queryINShow.next())
-    {
-    QString _id = queryINShow.value(0).toString();
-    QString name = queryINShow.value(1).toString();
-    ui->textEdit->insertPlainText(_id+" "+name+"\n");
-    }
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("C:\\apteka.sqlite");
+    db.open();
+    QSqlTableModel *model = new QSqlTableModel(this,db);
+    model->setTable("Category");
+    model->select();
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Название"));
+
+    ui->tableView->setModel(model);
+    ui->tableView->show();
+
+//    ui->textEdit->clear();
+//    QSqlQuery queryINShow;
+//    queryINShow.exec("Select * FROM Category;");
+//    while (queryINShow.next())
+//    {
+//    QString _id = queryINShow.value(0).toString();
+//    QString name = queryINShow.value(1).toString();
+//    ui->textEdit->insertPlainText(_id+" "+name+"\n");
+//    }
 }
 
 void MainWindow::on_pushButton_2_clicked()
