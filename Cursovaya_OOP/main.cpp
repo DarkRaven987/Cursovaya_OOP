@@ -2,6 +2,11 @@
 #include <QApplication>
 #include <string.h>
 #include <datetimeapi.h>
+#include "QtSql/QSqlDatabase"
+#include "QSqlQuery"
+#include <QtSql>
+#include <QtGui>
+#include <QtCore>
 using namespace std;
 
 class Basa
@@ -104,6 +109,5 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-
     return a.exec();
 }
