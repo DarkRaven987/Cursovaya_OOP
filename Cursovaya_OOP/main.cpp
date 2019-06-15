@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <string.h>
-#include <datetimeapi.h>
 #include "QtSql/QSqlDatabase"
 #include "QSqlQuery"
 #include <QtSql>
